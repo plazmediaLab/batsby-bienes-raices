@@ -7,6 +7,8 @@ import "modular-css/css/modular-css.font.css";
 import { ModularCSSfonstRequired } from 'modular-css';
 // Emotion Styled 
 import { Global, css } from '@emotion/core';
+// COmponents 
+import Header from '../header';
 
 const Layout = (props) => {
   return (
@@ -26,11 +28,10 @@ const Layout = (props) => {
         <link rel="icon" href={Favicon} />
         <meta name="theme-color" content="#191919" />
         <link href={ModularCSSfonstRequired} rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"/>
       </Helmet>
 
-      <header>
-        <h1>Header section</h1>
-      </header>
+      <Header />
 
       { props.children }
 
