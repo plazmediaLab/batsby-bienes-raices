@@ -5,11 +5,20 @@ import Favicon from '../../images/isologo.png'
 import "modular-css/css/modular.css";
 import "modular-css/css/modular-css.font.css";
 import { ModularCSSfonstRequired } from 'modular-css';
-
+// Emotion Styled 
+import { Global, css } from '@emotion/core';
 
 const Layout = (props) => {
   return (
     <>
+
+      <Global 
+        styles={css`
+          body{
+            min-height: 100vh;
+          }
+        `}
+      />
 
       <Helmet>
         <title>Bienes Raices</title>
