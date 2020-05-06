@@ -47,8 +47,8 @@ const Encuentra = () => {
       `}
     >
       <GridDiv>
-        <h2>Encuentra la casa de tus sueños.</h2>
-        <p>15 años de esperiencia</p>
+        <h2>Find the home of your dreams.</h2>
+        <p>15 years of experience.</p>
       </GridDiv>
     </BackgroundImage>
   );

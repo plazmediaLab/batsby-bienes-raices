@@ -8,6 +8,7 @@ import BackgroundImage from 'gatsby-background-image';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import Encuentra from '../components/encuentra';
+import PropertiesList from '../components/propertiesList';
 
 const ImageBackground = styled(BackgroundImage)`
   height: 500px;
@@ -61,6 +62,9 @@ export default () => {
           <h1 className="txt-strong" css={css`text-transform: capitalize;`}>{ name }</h1>
           <p>{ content }</p>
         </section>
+
+        <PropertiesList />
+
       </main>
 
       <Encuentra />
