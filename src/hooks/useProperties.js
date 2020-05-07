@@ -24,7 +24,7 @@ const useProperties = () => {
             id
             image{
               sharp: childImageSharp{
-                fluid(maxWidth: 600){
+                fluid(maxWidth: 600, maxHeight: 400){
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }

@@ -63,11 +63,16 @@ export default () => {
           <p>{ content }</p>
         </section>
 
-        <PropertiesList />
 
       </main>
 
       <Encuentra />
+
+      <main className="container mt-5">
+
+        <PropertiesList />
+
+      </main>
 
     </Layout>
   );

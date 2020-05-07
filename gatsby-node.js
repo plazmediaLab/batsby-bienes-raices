@@ -1,7 +1,29 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require('path');
 
-// You can delete this file if you're not using it
+exports.createPages= async ({ graphql, actions }) => {
+  const { createPage } = actions;
+  const DinamicTemplate = path.resolve(`src/components/layout/dinamicTemplate.js`);
+
+  const reqGql = await graphql(`
+    query{
+      allStrapiProperties{
+        edges{
+          node{
+            id
+          }
+        }
+      }
+    }
+  `);
+
+  reqGql.data.allStrapiProperties.edges.map(item => {
+    // console.log(item.node.id)
+    createPage({
+      path: `${item.node.id}`,
+      component: DinamicTemplate,
+      context:{
+        slug: `${item.node.id}`
+      }
+    })
+  });
+}
