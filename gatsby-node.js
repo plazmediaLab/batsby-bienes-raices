@@ -17,12 +17,12 @@ exports.createPages= async ({ graphql, actions }) => {
   `);
 
   reqGql.data.allStrapiProperties.edges.map(item => {
-    // console.log(item.node.id)
+    const slug = item.node.id;
     createPage({
-      path: `${item.node.id}`,
+      path: `${slug}`,
       component: DinamicTemplate,
       context:{
-        slug: `${item.node.id}`
+        slug: `${slug}`
       }
     })
   });

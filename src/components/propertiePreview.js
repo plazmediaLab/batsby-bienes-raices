@@ -2,6 +2,7 @@ import React from 'react';
 import Icons from './Icons';
 import styled from '@emotion/styled';
 import Image from 'gatsby-image';
+import { Link } from 'gatsby';
 
 const CardDody = styled.div`
   text-align: left;
@@ -24,6 +25,7 @@ export default function PropertiePreview({ item }){
     wc,
     price,
     image,
+    id,
     category,
     agents
   } = item;
@@ -44,6 +46,10 @@ export default function PropertiePreview({ item }){
           parking={parking}
           wc={wc}
         />
+
+        <Link to={id} className="btn btn-100 btn-empty-grape mt-5">
+          See info propertie
+        </Link>
 
       </CardDody>
     </aside>
