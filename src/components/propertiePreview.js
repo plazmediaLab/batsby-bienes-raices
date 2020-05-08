@@ -38,7 +38,7 @@ export default function PropertiePreview({ item }){
 
       <CardDody className="card-body">
         <h5>{ name }</h5>
-        <p>${ price }</p>
+        <p>${ new Intl.NumberFormat().format(price) }</p>
 
         <hr/>
 
