@@ -1,3 +1,4 @@
+const urlSlug = require('url-slug');
 const path = require('path');
 
 exports.createPages= async ({ graphql, actions }) => {
@@ -10,6 +11,7 @@ exports.createPages= async ({ graphql, actions }) => {
         edges{
           node{
             id
+            name
           }
         }
       }
@@ -17,12 +19,13 @@ exports.createPages= async ({ graphql, actions }) => {
   `);
 
   reqGql.data.allStrapiProperties.edges.map(item => {
-    const slug = item.node.id;
+    const slug = urlSlug(item.node.name);
+    console.log(slug);
     createPage({
       path: `${slug}`,
       component: DinamicTemplate,
       context:{
-        slug: `${slug}`
+        id: `${item.node.id}`
       }
     })
   });

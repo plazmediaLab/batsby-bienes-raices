@@ -7,7 +7,9 @@ export default (props) => {
 
   const data = props.data.allStrapiProperties.edges[0].node;
   const {
-    id
+    id,
+    name,
+    description
   } = data;
 
   console.log(id);
@@ -16,7 +18,8 @@ export default (props) => {
     <Layout>
 
       <div className="container">
-        <h2>Dinamic page...</h2>
+        <h1>{ name }</h1>
+        <p>{ description }</p>
       </div>
 
     </Layout>
@@ -24,8 +27,8 @@ export default (props) => {
 };
 
 export const query = graphql`
-  query($slug:String){
-    allStrapiProperties(filter: {id: {eq: $slug}}){
+  query($id:String){
+    allStrapiProperties(filter: {id: {eq: $id}}){
       edges{
         node{
           id

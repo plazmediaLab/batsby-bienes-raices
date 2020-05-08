@@ -1,3 +1,4 @@
+import urlSlug from 'url-slug'
 import React from 'react';
 import Icons from './Icons';
 import styled from '@emotion/styled';
@@ -47,7 +48,7 @@ export default function PropertiePreview({ item }){
           wc={wc}
         />
 
-        <Link to={id} className="btn btn-100 btn-empty-grape mt-5">
+        <Link to={ urlSlug(name) } className="btn btn-100 btn-empty-grape mt-5">
           See info propertie
         </Link>
 
