@@ -1,6 +1,6 @@
-import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
-import styled from '@emotion/styled';
+import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
+import styled from "@emotion/styled"
 
 const UlGrid = styled.ul`
   margin: 0;
@@ -12,48 +12,47 @@ const UlGrid = styled.ul`
   align-items: center;
   text-align: center;
 
-  li{
+  li {
     display: flex;
     justify-content: center;
 
-    img{
+    img {
       height: 2.5rem;
       margin-right: 1rem;
     }
   }
-`;
+`
 
 const IconsSvg = ({ rooms, parking, wc }) => {
-
   const reqGql = useStaticQuery(graphql`
-    query{
-      icons :allFile(filter: {relativeDirectory: {eq:"iconos"}}){
-        edges{
-          node{
+    query {
+      icons: allFile(filter: { relativeDirectory: { eq: "iconos" } }) {
+        edges {
+          node {
             id
             publicURL
           }
         }
       }
     }
-  `);
+  `)
 
   return (
     <UlGrid>
       <li>
-        <img src={reqGql.icons.edges[0].node.publicURL} alt="Icon Rooms"/>
+        <img src={reqGql.icons.edges[0].node.publicURL} alt="Icon Rooms" />
         {rooms}
       </li>
       <li>
-        <img src={reqGql.icons.edges[1].node.publicURL} alt="Icon Parking"/>
+        <img src={reqGql.icons.edges[1].node.publicURL} alt="Icon Parking" />
         {parking}
       </li>
       <li>
-        <img src={reqGql.icons.edges[2].node.publicURL} alt="Icon WC"/>
+        <img src={reqGql.icons.edges[2].node.publicURL} alt="Icon WC" />
         {wc}
       </li>
     </UlGrid>
-  );
-};
+  )
+}
 
-export default IconsSvg;
+export default IconsSvg

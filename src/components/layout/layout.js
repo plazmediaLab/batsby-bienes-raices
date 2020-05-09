@@ -1,22 +1,21 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import Favicon from '../../images/isologo.png'
+import React from "react"
+import { Helmet } from "react-helmet"
+import Favicon from "../../images/isologo.png"
 // Modular-CSS
-import "modular-css/css/modular.css";
-import "modular-css/css/modular-css.font.css";
-import { ModularCSSfonstRequired } from 'modular-css';
-// Emotion Styled 
-import { Global, css } from '@emotion/core';
-// COmponents 
-import Header from '../header';
+import "modular-css/css/modular.css"
+import "modular-css/css/modular-css.font.css"
+import { ModularCSSfonstRequired } from "modular-css"
+// Emotion Styled
+import { Global, css } from "@emotion/core"
+// COmponents
+import Header from "../header"
 
-const Layout = (props) => {
+const Layout = props => {
   return (
     <>
-
-      <Global 
+      <Global
         styles={css`
-          body{
+          body {
             min-height: 100vh;
           }
         `}
@@ -24,19 +23,21 @@ const Layout = (props) => {
 
       <Helmet>
         <title>Bienes Raices</title>
-        <meta name="description" content=""/>
+        <meta name="description" content="" />
         <link rel="icon" href={Favicon} />
         <meta name="theme-color" content="#191919" />
         <link href={ModularCSSfonstRequired} rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"/>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+          rel="stylesheet"
+        />
       </Helmet>
 
       <Header />
 
-      { props.children }
-
+      {props.children}
     </>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

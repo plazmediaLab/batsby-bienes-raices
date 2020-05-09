@@ -1,11 +1,10 @@
 // Gatsby
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from "gatsby"
 
 const useHome = () => {
-
   const reqGql = useStaticQuery(graphql`
-    query{
-      allStrapiPages(filter: {name: {eq: "home"}}) {
+    query {
+      allStrapiPages(filter: { name: { eq: "home" } }) {
         edges {
           node {
             id
@@ -13,7 +12,7 @@ const useHome = () => {
             content
             image {
               sharp: childImageSharp {
-                fluid( maxWidth: 1200 ) {
+                fluid(maxWidth: 1200) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }
@@ -22,10 +21,9 @@ const useHome = () => {
         }
       }
     }
-  `);
+  `)
 
-  return reqGql.allStrapiPages.edges[0].node;
+  return reqGql.allStrapiPages.edges[0].node
+}
 
-};
-
-export default useHome;
+export default useHome

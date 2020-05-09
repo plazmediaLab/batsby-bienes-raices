@@ -1,9 +1,8 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from "gatsby"
 
 const useProperties = () => {
-  
   const reqGql = useStaticQuery(graphql`
-    query{
+    query {
       allStrapiProperties {
         edges {
           node {
@@ -22,9 +21,9 @@ const useProperties = () => {
             }
             description
             id
-            image{
-              sharp: childImageSharp{
-                fluid(maxWidth: 600, maxHeight: 400){
+            image {
+              sharp: childImageSharp {
+                fluid(maxWidth: 600, maxHeight: 400) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }
@@ -33,7 +32,7 @@ const useProperties = () => {
         }
       }
     }
-  `);
+  `)
 
   return reqGql.allStrapiProperties.edges.map(item => ({
     name: item.node.name,
@@ -43,11 +42,10 @@ const useProperties = () => {
     wc: item.node.wc,
     parking: item.node.parking,
     rooms: item.node.rooms,
-    price:item.node.price,
+    price: item.node.price,
     agents: item.node.agents,
-    category: item.node.category
+    category: item.node.category,
   }))
+}
 
-};
-
-export default useProperties;
+export default useProperties
