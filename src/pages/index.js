@@ -46,6 +46,8 @@ export default () => {
   
   const { name, content, image } = useHome();
 
+  
+
   return (
     <Layout>
 

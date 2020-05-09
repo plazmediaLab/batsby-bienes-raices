@@ -3,13 +3,16 @@ import useProperties from '../hooks/useProperties';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import PropertiePreview from './propertiePreview';
+import urlSlug from 'url-slug';
+// Hooks
+import useFilter from '../hooks/useFilter';
 
 const Grid = styled.div`
   display: grid;
   align-content: center;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  margin-top: 4rem;
+  margin-top: 2rem;
 
   @media(max-width: 930px){
     grid-template-columns: repeat(2, 1fr);
@@ -22,11 +25,19 @@ const Grid = styled.div`
 const PropertiesList = () => {
 
   const response = useProperties();
-  const [properties, setProperties] = useState([]);
+  const [properties] = useState(response);
+  const [filtered, setFiltered] = useState([]);
+
+  const { categorie, FilterUI } = useFilter();
 
   useEffect(() => {
-    setProperties(response);
-  }, [/* dependencia */]);
+    if(categorie){
+      const filter = properties.filter(item => urlSlug(item.category.name) === categorie)
+      setFiltered(filter)
+    }else{
+      setFiltered(properties);
+    }
+  }, [categorie]);
 
   return (
     <div css={css`
@@ -35,8 +46,12 @@ const PropertiesList = () => {
 
       <h3>Our properties</h3>
 
+      { FilterUI() }
+
+      <hr/>
+
       <Grid>
-        {properties.slice(0, 6).map(item =>(
+        {filtered.slice(0, 9).map(item =>(
         
           <PropertiePreview 
             key={item.id}
